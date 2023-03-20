@@ -1,6 +1,7 @@
 import 'package:client_chat/backend/models/channel_model.dart';
 import 'package:client_chat/backend/models/chat_message_model.dart';
 import 'package:client_chat/backend/models/encounted_error_model.dart';
+import 'package:client_chat/backend/models/track_info_model.dart';
 import 'package:client_chat/backend/models/user_model.dart';
 import 'package:client_chat/helpers/socket_service.dart';
 
@@ -29,8 +30,20 @@ class AppState {
 
   static AppState init() => AppState(
         channelList: [
-          Channel(id: '', title: 'Amapiano', activeUsers: 12, imageURL: ''),
-          Channel(id: '', title: 'HipHop', activeUsers: 12, imageURL: '')
+          Channel(
+            id: '',
+            title: 'Amapiano',
+            activeUsers: 12,
+            imageURL: '',
+            currentTrack: TrackInfo.invalid(),
+          ),
+          Channel(
+            id: '',
+            title: 'HipHop',
+            activeUsers: 12,
+            imageURL: '',
+            currentTrack: TrackInfo.invalid(),
+          )
         ],
         currentChannel: Channel.invalid(),
         isLoading: false,

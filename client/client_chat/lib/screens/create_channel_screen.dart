@@ -1,6 +1,7 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:client_chat/backend/actions/create_channel_action.dart';
 import 'package:client_chat/backend/models/channel_model.dart';
+import 'package:client_chat/backend/models/track_info_model.dart';
 import 'package:client_chat/backend/states/app_state.dart';
 import 'package:client_chat/screens/channels_screen.dart';
 import 'package:client_chat/screens/home_screen.dart';
@@ -134,7 +135,8 @@ class _CreateChannelScreenState extends State<CreateChannelScreen> {
                             id: '',
                             title: _titleController.text,
                             activeUsers: 0,
-                            imageURL: '');
+                            imageURL: '',
+                            currentTrack: TrackInfo.invalid());
                         _onCreateTap(context, vm, channel).then((value) {
                           Navigator.push(
                             context,

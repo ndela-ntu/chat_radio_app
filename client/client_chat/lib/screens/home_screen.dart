@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return StoreConnector<AppState, ViewModel>(
       vm: () => Factory(widget),
       onInitialBuild: (context, store, vm) {
-        _oninitialBuild(this.context, vm, 'http://localhost:3000');
+        _oninitialBuild(this.context, vm, 'http://localhost:5000');
       },
       builder: (context, vm) => _buildScaffold(context, vm),
     );

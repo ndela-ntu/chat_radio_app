@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:client_chat/backend/models/chat_message_model.dart';
+import 'package:client_chat/backend/models/track_info_model.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class SocketService {
@@ -44,6 +45,15 @@ class SocketService {
 
   void leaveChannel(String channelName) {
     _socket!.emit('leaveChannel', channelName);
+  }
+
+  void getTrackInfo(Function(TrackInfo) onTrackInfo) {
+    _socket!.on("trackInfo", (data) {
+      final trackInfo =
+          TrackInfo.fromJson(jsonDecode(data) as Map<String, dynamic>);
+
+      onTrackInfo(trackInfo);
+    });
   }
 
   void disconnect() {

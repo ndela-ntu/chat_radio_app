@@ -1,6 +1,7 @@
 import 'package:client_chat/backend/states/app_state.dart';
 import 'package:client_chat/screens/channels_screen.dart';
 import 'package:client_chat/screens/home_screen.dart';
+import 'package:client_chat/widgets/channel_details.dart';
 import 'package:flutter/material.dart';
 
 import 'package:async_redux/async_redux.dart';
@@ -20,7 +21,7 @@ class Main extends StatelessWidget {
         title: 'Chat App',
         theme: ThemeData(primarySwatch: Colors.grey),
         debugShowCheckedModeBanner: false,
-        home: const ChannelsScreen(),
+        home: ChannelsScreen(),
       ),
     );
   }

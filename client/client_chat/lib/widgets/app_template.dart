@@ -10,17 +10,17 @@ class AppTemplate extends StatefulWidget {
   AppTemplate({
     Key? key,
     required this.child,
+    this.appBar,
     required this.isLoading,
     required this.appOn,
     required this.encountedError,
-    required this.testCounter,
   }) : super(key: key);
 
   Widget child;
+  AppBar? appBar;
   bool isLoading;
   bool appOn;
   EncountedError encountedError;
-  int testCounter;
 
   @override
   State<AppTemplate> createState() => _AppTemplateState();
@@ -37,6 +37,7 @@ class _AppTemplateState extends State<AppTemplate> {
     }
 
     return Scaffold(
+      appBar: widget.appBar,
       body: widget.isLoading
           ? Center(
               child: LoadingIndicator(
@@ -67,7 +68,7 @@ class _AppTemplateState extends State<AppTemplate> {
           ),
           ElevatedButton(
             onPressed: () {
-              //SystemNavigator.pop();
+              SystemNavigator.pop();
             },
             child: Text('Exit'),
           )

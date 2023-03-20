@@ -36,7 +36,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   socket_io_client: ^2.0.1
   async_redux: ^14.1.1
-  intl: ^0.18.0
+  intl: ^0.17.0
+  marquee: 2.2.0
+  audioplayers: ^0.20.0
+  web_socket_channel: ^2.3.0
+  aws_s3_api: ^1.2.0
 
 dev_dependencies:
   flutter_test:

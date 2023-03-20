@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:client_chat/backend/actions/append_socket_message_list_action.dart';
 import 'package:client_chat/backend/actions/loading_action.dart';
 import 'package:client_chat/backend/actions/set_app_signal_state_action.dart';
+import 'package:client_chat/backend/actions/set_current_track_info_action.dart';
 import 'package:client_chat/backend/models/chat_message_model.dart';
 import 'package:client_chat/backend/models/encounted_error_model.dart';
 import 'package:client_chat/backend/states/app_state.dart';
@@ -35,6 +36,10 @@ class ConnectToSocketAction extends ReduxAction<AppState> {
 
         currentSocket.listenForMessages((message) async {
           await dispatch(AppendSocketMessageListAction(message: message));
+        });
+
+        currentSocket.getTrackInfo((currentTrack) async {
+          await dispatch(SetCurrentTrackInfoAction(currentTrack: currentTrack));
         });
       } else {
         await dispatch(SetAppSignalStateAction(isOn: false));

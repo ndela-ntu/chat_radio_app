@@ -41,7 +41,7 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
       vm: () => Factory(widget),
       distinct: true,
       onInitialBuild: (context, store, vm) {
-        _oninitialBuild(this.context, vm, 'http://localhost:3000');
+        _oninitialBuild(this.context, vm, 'http://localhost:5000');
       },
       builder: (context, vm) => _buildScaffold(context, vm),
     );
@@ -52,7 +52,6 @@ class _ChannelsScreenState extends State<ChannelsScreen> {
       isLoading: vm.isLoading,
       encountedError: vm.encountedError,
       appOn: vm.appOn,
-      testCounter: vm.testCounter,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
